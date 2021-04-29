@@ -7,7 +7,8 @@
 | password | string  | null: false               |  パスワード
 
 ### Association
-
+- has_many :foods
+- has many :likes
 
 
 # foodsテーブル
@@ -20,7 +21,8 @@
 | user_id    | references | null: false, foreign_key: true |
 
 ## Association
-
+- belongs_to :user
+- has_many :likes
 
 
 # likesテーブル
@@ -31,3 +33,5 @@
 | food_id | references | null: false, foreign_key: true |
 
 ## Association
+- belongs_to :user
+- belongs_to :food
