@@ -14,48 +14,47 @@
     <header class="global-header">
       <div class="global-header-center">
         <div class="global-header-sub">
-          <a>自分に合ったお店を見つけよう</a>
+          <a class="global-header-catchcopy">〜〜自分に合ったお店を見つけよう〜〜</a>
           <nav>
             <ul class="global-navigation">
-              <li><%= link_to "エリア", "#" %></li>
-              <li><%= link_to "ジャンル", "#" %></li>
-              <li><%= link_to "口コミ", "#" %></li>
+              <li><%= link_to "エリア別", "#", class: "navi" %></li>
+              <li><%= link_to "ジャンル別", "#", class: "navi" %></li>
+              <li><%= link_to "口コミ投稿", new_food_path, class: "navi" %></li>
             </ul>
           </nav>
         </div>
         <div class="global-header-main">
-          <a href="#">Food-Navi</a></h1>
+          <a href="/" class="food-navi">Food-Navi</a></h1>
           <div class="global-header-search"></div>
           <% if user_signed_in? %>
-            <ul class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <li><%= link_to "ログアウト", "#", method: :delete %></li>
+            <ul class="global-navi-link">
+              <li><%= link_to "ログアウト", destroy_user_session_path, class: "navi-link", method: :delete %></li>
+            </ul>
           <% else %>
-              <li><%= link_to "ログイン", "#", class: "post" %></li>
-              <li><%= link_to "新規登録", "#", class: "post" %></li>
+            <ul class="global-navi-link">
+              <li><%= link_to "ログイン", new_user_session_path, class: "navi-link" %></li>
+              <li><%= link_to "新規登録", new_user_registration_path, class: "navi-link" %></li>
             </ul>
           <% end %>
         </div>
       </div>
     </header>
-    <div class="container">
+    <div class="container"></div>
     <%= yield %>
     <footer class="global-footer">
       <div class="global-footer-layout">
         <ul class="global-footer-navi">
-          <li class="navi-item">food-naviについて</li>
-          <li class="navi-item">運営会社</li>
-          <li class="navi-item">利用規約</li>
-          <li class="navi-item">プライバシーポリシー</li>
-          <li class="navi-item">サイトマップ</li>
-          <li class="navi-item">グルメニュース</li>
-          <li class="navi-item">food-navi会員様について</li>
-          <li class="navi-item">おすすめ口コミ</li>
-          <li class="navi-item">ヘルプページ</li>
-          <li class="navi-item">Facebook公式</li>
-          <li class="navi-item">Twitter公式</li>
+          <li><%= link_to "food-naviについて", "#", class: "navi-item" %></li>
+          <li><%= link_to "運営会社", "#", class: "navi-item" %></li>
+          <li><%= link_to "利用規約", "#", class: "navi-item" %></li>
+          <li><%= link_to "プライバシーポリシー", "#", class: "navi-item" %></li>
+          <li><%= link_to "サイトマップ", "#", class: "navi-item" %></li>
+          <li><%= link_to "グルメニュース", "#", class: "navi-item" %></li>
+          <li><%= link_to "food-navi会員様につい", "#", class: "navi-item" %></li>
+          <li><%= link_to "おすすめ口コミ", "#", class: "navi-item" %></li>
+          <li><%= link_to "ヘルプページ", "#", class: "navi-item" %></li>
+          <li><%= link_to "Facebook公式", "#", class: "navi-item" %></li>
+          <li><%= link_to "Twitter公式", "#", class: "navi-item" %></li>
         </ul>
         <p class="global-footer-copyrigth">Copyright (C) food-navi All Rights Reserved.</p>
       </div>
