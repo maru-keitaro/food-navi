@@ -1,11 +1,11 @@
-<h1>行ったお店の口コミを投稿してみよう！！</h1>
-<div class="new-contents">
-  <%= form_with model: @food, url: foods_path, method: :post, local: true do |f| %>
-    <%= f.text_field :store_name, class: "new-store-name", placeholder: "店舗名を入力してください" %>
+<%= form_with model: @food, url: foods_path, method: :post, local: true do |f| %>
+  <div class="new-contents">
+    <h1 class="new-box">お店の口コミを投稿してみよう！！</h1>
+    <%= f.text_field :store, class: "new-store", placeholder: "店舗名" %>
+    <h3 class="new-genre">お店のジャンル</h3>
+    <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, { class: "select-box", id: "food-genre" }) %>
     <%= f.text_area :content, class: "new-content", placeholder: "口コミを入力してください" %>
-    <%# <%= f.label :image, "画像", class: "image_btn" %>
-    <%= f.file_field :image, class:"image_form" %>
-    <%= f.submit "口コミを投稿", class:"btn" %>
-  <% end %>
-</div>
-
+    <%= f.file_field :image, class:"new-image-form" %>
+    <%= f.submit "口コミを投稿", class:"new-btn" %>
+  </div>
+<% end %>

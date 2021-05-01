@@ -41,7 +41,8 @@ ActiveRecord::Schema.define(version: 2021_04_30_134022) do
   end
 
   create_table "foods", charset: "utf8", force: :cascade do |t|
-    t.string "store_name", null: false
+    t.string "store", null: false
+    t.integer "genre_id", null: false
     t.text "content", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

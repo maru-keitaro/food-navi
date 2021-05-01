@@ -16,6 +16,7 @@
 | Column     | Type       | Options                        |
 | -----------| ---------- | ------------------------------ |
 | store_name | string     | null: false                    |  店舗名
+| genre_id   | integer    | null: false                    |  ジャンル
 | content    | text       | null: false                    |  口コミ欄
 | image      |            | Active Storage                 |  投稿画像
 | user_id    | references | null: false, foreign_key: true |
