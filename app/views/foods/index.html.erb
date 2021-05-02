@@ -1,28 +1,31 @@
 <div class="index-contnets">
-  <h1 class="user-section-title">USERの<br>オススメからお店を探す</h1>
-  <p class="user-section-info">Food-naviではグルメ情報に詳しいユーザーさんの口コミ投稿から自分に合ったお店を見つけてみよう！</p>
+  <h1 class="user-section-title">〜〜USERの口コミからお店を探す〜〜</h1>
+  <p class="user-section-info">Food-naviではグルメ情報に詳しいユーザーさんの口コミ投稿から自分に合ったお店を見つけてみよう！！</p>
 
   <div class="user-section-list">
-    <% @food.each do |food| %>
+    <% @foods.each do |food| %>
       <div class="index-store"> 
-        <%= food.store %>
+        店舗名: <%= food.store %>
       </div>
 
       <div class="index-genre">
-        <%= food.genre.name %>
+        ジャンル: <%= food.genre.name %>
       </div>
 
       <div class="index-image">
-        <%= link_to image_tag(food.image), food_path(food.id) if food.image.attached? %>
+        <%= link_to image_tag(food.image, class: :food_img), food_path(food.id) if food.image.attached? %>
       </div>
 
       <div class="user-name">
-        <%= food.user.name %>
+        <%= food.user.name %>さんの口コミ
       </div>
 
       <div class="index-content">
-        <%= food.content %>
+        <%# <%= food.content %>
+        <%= render 'content_list' %>
+        <%= link_to_next_page @foods, 'もっと見る', remote: true, id: 'more_link' %>
       </div>
     <% end %>
   </div>
 </div> 
+

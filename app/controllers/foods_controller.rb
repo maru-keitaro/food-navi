@@ -1,6 +1,7 @@
 class FoodsController < ApplicationController
   def index
-    @food = Food.all.order("created_at DESC")
+    @foods = Food.all.order("created_at DESC").page(params[:page])
+    # @foods = Food.page(params[:page])
   end
 
   def new
@@ -14,6 +15,9 @@ class FoodsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
   end
 
   private
