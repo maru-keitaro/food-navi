@@ -9,7 +9,8 @@
 ### Association
 - has_many :foods
 - has many :likes
-
+- has_many ::active_relationships
+id
 
 # foodsテーブル
 
@@ -25,6 +26,18 @@
 - belongs_to :user
 - has_many :likes
 
+
+# relationshipsテーブル
+
+| Column      | Type       | Options           |
+| ----------- | ---------- | ----------------- |  フォロー機能
+| follower_id | integer    |                   |
+| followed_id | integer    |                   |
+| user_id     | references | foreign_key: true |
+
+## Association
+- belongs_to :follower
+- belongs_to :followed
 
 # likesテーブル
 

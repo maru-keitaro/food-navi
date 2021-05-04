@@ -1,4 +1,4 @@
-<div class="index-contnets">
+<div class="index-contents">
   <h1 class="user-section-title">〜〜USERの口コミからお店を探す〜〜</h1>
   <p class="user-section-info">Food-naviではグルメ情報に詳しいユーザーさんの口コミ投稿から自分に合ったお店を見つけてみよう！！</p>
 
@@ -17,15 +17,14 @@
       </div>
 
       <div class="user-name">
-        <%= food.user.name %>さんの口コミ
+        ・<%= food.user.name %>さんの口コミ
       </div>
 
       <div class="index-content">
-        <%# <%= food.content %>
-        <%= render 'content_list' %>
-        <%= link_to_next_page @foods, 'もっと見る', remote: true, id: 'more_link' %>
+        <%= food.content %>
       </div>
+      <p class="index-content-more"><%= link_to "...もっと見る", food_path(food.id) %></p>
+        <%= food.liked_users.count %>イイね！！
     <% end %>
   </div>
 </div> 
-

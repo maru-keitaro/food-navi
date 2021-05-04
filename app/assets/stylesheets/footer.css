@@ -6,11 +6,8 @@
   padding: 10px 0;
   position: absolute;/*←絶対位置*/
   bottom: 0; /*下に固定*/
+  position: fixed;
 }
-
-/* .global-footer-layout {
-  
-} */
 
 .global-footer-navi {
   display: flex;

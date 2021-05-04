@@ -11,6 +11,7 @@ class Food < ApplicationRecord
   end
 
   belongs_to :user
+  has_many :likes
+  has_many :liked_users, through: :likes, source: :user
   has_one_attached :image
-  paginates_per 10
 end
