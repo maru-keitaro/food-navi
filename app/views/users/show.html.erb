@@ -1,8 +1,4 @@
-<div class="index-contents">
-  <h1 class="user-section-title">〜〜USERの口コミからお店を探す〜〜</h1>
-  <p class="user-section-info">Food-naviではグルメ情報に詳しいユーザーさんの口コミ投稿から自分に合ったお店を見つけてみよう！！</p>
-
-  <div class="user-section-list">
+<div class="user-section-list">
     <% @foods.each do |food| %>
       <div class="index-store"> 
         店舗名: <%= food.store %>
@@ -17,7 +13,7 @@
       </div>
 
       <div class="user-name">
-        ・<%= link_to "#{food.user.name}", user_path(current_user), class: :talking_link %>さんの口コミ
+        ・<%= food.user.name %>さんの口コミ
       </div>
 
       <div class="index-content">
@@ -27,4 +23,5 @@
         <%= food.liked_users.count %>イイね！！
     <% end %>
   </div>
-</div> 
+
+  

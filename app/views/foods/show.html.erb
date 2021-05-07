@@ -25,15 +25,17 @@
     </div>
   </div>
   
-    <div class="food-edit-delete">
-      <%= link_to "編集", edit_food_path(@food.id), class: :food_edit %>
-      <%= link_to "削除", food_path(@food.id), class: :food_delete, method: :delete %>
-    </div>
-  
+  <div class="food-edit-delete">
+    <%= link_to "編集", edit_food_path(@food.id), class: :food_edit %>
+    <%= link_to "削除", food_path(@food.id), class: :food_delete, method: :delete %>
+
     <h3>いいね件数: <%= @food.likes.count %></h3>
-    <% if current_user.already_liked?(@food) %>
-      <%= button_to 'いいねを取り消す', food_like_path(@food), method: :delete %>
-    <% else %>
-      <%= button_to 'いいね', food_likes_path(@food) %>
+    <% if current_user %>
+      <% if current_user.liked_by?(@food.id) %>
+        <%= button_to 'いいねを取り消す', food_like_path(@food), method: :delete %>
+      <% else %>
+        <%= button_to 'いいね', food_likes_path(@food) %>
+      <% end %>
     <% end %>
+  </div>
 </div>
